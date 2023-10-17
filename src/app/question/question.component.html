@@ -1,0 +1,40 @@
+<div class="q1">
+  <label for="quizName">Quiz Name: </label>
+  <input [(ngModel)]="quizName" class="quizName" type="text">
+  <br>
+  <input [(ngModel)]="newQuestion.question" class="question" type="text" />
+
+<ul>
+  <input name="radioGroup" type="radio" [(ngModel)]="newQuestion.correctAnswer" value="1"/>
+  <input [(ngModel)]="newQuestion.answer1" type="text" />
+  <input name="radioGroup" type="radio" [(ngModel)]="newQuestion.correctAnswer" value="2" />
+  <input [(ngModel)]="newQuestion.answer2" type="text" />
+  <input name="radioGroup" type="radio" [(ngModel)]="newQuestion.correctAnswer" value="3"/>
+  <input [(ngModel)]="newQuestion.answer3" type="text" />
+  <input name="radioGroup" type="radio" [(ngModel)]="newQuestion.correctAnswer" value="4"/>
+  <input [(ngModel)]="newQuestion.answer4" type="text" />
+
+</ul>
+
+</div>
+
+  <button class="btn btn-success" (click)="submitQuestion()" [disabled]="qCount >=10">Next Question</button>
+
+
+  <hr>
+
+  <div *ngFor="let question of questions">
+    <p>{{question.question}}</p>
+    <p>{{question.answer1}}</p>
+    <p>{{question.answer2}}</p>
+    <p>{{question.answer3}}</p>
+    <p>{{question.answer4}}</p>
+    <p>{{question.correctAnswer}}</p>
+    <hr>
+  </div>
+
+
+  <br>
+  <button class="btn btn-primary" (click)="submitQuiz()">Submit</button>
+  <button class="btn btn-danger" (click)="clear()">Clear</button>
+
