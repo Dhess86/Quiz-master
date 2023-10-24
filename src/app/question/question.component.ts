@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, } from '@angular/core';
 import { Question } from '../question';
 import { Quiz } from '../quiz';
 import { QuizService } from '../quiz.service';
@@ -20,8 +20,6 @@ export class QuestionComponent {
 
   constructor (private quizService: QuizService) {
   }
-
-
 
   submitQuestion() {
       this.questions.push({...this.newQuestion})
