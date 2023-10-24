@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Quiz } from '../quiz';
+import { QuizService } from '../quiz.service';
 
 @Component({
   selector: 'app-quiz-display',
@@ -13,6 +14,10 @@ ngOnChanges() {
   console.log(this.quizzes)
 }
 
+constructor (private quizService: QuizService)
+{
+  this.quizzes = this.quizService.quizzes
+}
 clear() {
   this.quizzes = [];
 
