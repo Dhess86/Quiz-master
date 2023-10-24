@@ -16,6 +16,7 @@ export class QuestionComponent {
   questionCreated = false;
   newQuestion: Question = new Question()
   qCount = 0
+  quizName: string = '';
 
   constructor (private quizService: QuizService) {
   }
@@ -31,18 +32,20 @@ export class QuestionComponent {
 
   }
 
-  quizName: string = '';
 
   submitQuiz() {
     this.quizService.addQuiz(new Quiz(this.quizName, this.questions))
-    console.log(this.quizName)
-  }
-
-
-  clear() {
     this.questions = [];
-    localStorage.setItem('qStorage', JSON.stringify(this.questions))
     this.qCount = 0;
-  }
-}
+    localStorage.setItem('qStorage', JSON.stringify(this.questions))
+    this.quizName=""
 
+  }
+
+
+    clear() {
+      this.questions = [];
+      localStorage.setItem('qStorage', JSON.stringify(this.questions))
+    this.qCount = 0;
+      }
+    }

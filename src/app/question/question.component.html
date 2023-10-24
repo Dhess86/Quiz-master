@@ -1,28 +1,30 @@
-<div class="q1">
-  <label for="quizName">Quiz Name: </label>
-  <input [(ngModel)]="quizName" class="quizName" type="text">
-  <br>
+<div class="container">
   <input [(ngModel)]="newQuestion.question" class="question" type="text" />
+  </div>
 
-<ul>
-  <input name="radioGroup" type="radio" [(ngModel)]="newQuestion.correctAnswer" value="1"/>
-  <input [(ngModel)]="newQuestion.answer1" type="text" />
-  <input name="radioGroup" type="radio" [(ngModel)]="newQuestion.correctAnswer" value="2" />
-  <input [(ngModel)]="newQuestion.answer2" type="text" />
-  <input name="radioGroup" type="radio" [(ngModel)]="newQuestion.correctAnswer" value="3"/>
-  <input [(ngModel)]="newQuestion.answer3" type="text" />
-  <input name="radioGroup" type="radio" [(ngModel)]="newQuestion.correctAnswer" value="4"/>
-  <input [(ngModel)]="newQuestion.answer4" type="text" />
+  <br>
 
-</ul>
+  <div>
+    <ul>
+      <input name="radioGroup" type="radio" [(ngModel)]="newQuestion.correctAnswer" value="1"/>
+      <input [(ngModel)]="newQuestion.answer1" type="text" />
+      <input name="radioGroup" type="radio" [(ngModel)]="newQuestion.correctAnswer" value="2" />
+      <input [(ngModel)]="newQuestion.answer2" type="text" />
+      <input name="radioGroup" type="radio" [(ngModel)]="newQuestion.correctAnswer" value="3"/>
+      <input [(ngModel)]="newQuestion.answer3" type="text" />
+      <input name="radioGroup" type="radio" [(ngModel)]="newQuestion.correctAnswer" value="4"/>
+      <input [(ngModel)]="newQuestion.answer4" type="text" />
 
-</div>
+    </ul>
 
-  <button class="btn btn-success" (click)="submitQuestion()" [disabled]="qCount >=10">Next Question</button>
+  </div>
 
 
-  <hr>
+<button class="btn btn-success" (click)="submitQuestion()" [disabled]="qCount >=10">Next Question</button>
 
+
+<hr>
+<div class="temp">
   <div *ngFor="let question of questions">
     <p>{{question.question}}</p>
     <p>{{question.answer1}}</p>
@@ -32,9 +34,11 @@
     <p>{{question.correctAnswer}}</p>
     <hr>
   </div>
+</div>
 
+<label for="quizName">Quiz Name: </label>
+<input [(ngModel)]="quizName" class="quizName" type="text">
 
-  <br>
-  <button class="btn btn-primary" (click)="submitQuiz()">Submit</button>
+<br>
+<button class="btn btn-primary" (click)="submitQuiz()">Submit</button>
   <button class="btn btn-danger" (click)="clear()">Clear</button>
-
