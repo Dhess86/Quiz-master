@@ -1,7 +1,5 @@
 <div class="q1">
-  <label for="quizName">Quiz Name: </label>
-  <input [(ngModel)]="quizName" class="quizName" type="text">
-  <br>
+
   <input [(ngModel)]="newQuestion.question" class="question" type="text" />
 
 <ul>
@@ -34,6 +32,9 @@
   </div>
 
 
+  <br>
+  <label for="quizName">Quiz Name: </label>
+  <input [(ngModel)]="quizName" class="quizName" type="text">
   <br>
   <button class="btn btn-primary" (click)="submitQuiz()">Submit</button>
   <button class="btn btn-danger" (click)="clear()">Clear</button>

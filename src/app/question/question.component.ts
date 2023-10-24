@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, } from '@angular/core';
 import { Question } from '../question';
 import { Quiz } from '../quiz';
 import { QuizService } from '../quiz.service';
@@ -15,12 +15,11 @@ export class QuestionComponent {
   questions: any[] = JSON.parse(localStorage.getItem('qStorage') || '[]');
   questionCreated = false;
   newQuestion: Question = new Question()
-  qCount = 0
+  qCount = 0;
+  quizName: string = '';
 
   constructor (private quizService: QuizService) {
   }
-
-
 
   submitQuestion() {
       this.questions.push({...this.newQuestion})
@@ -31,11 +30,15 @@ export class QuestionComponent {
 
   }
 
-  quizName: string = '';
+
 
   submitQuiz() {
     this.quizService.addQuiz(new Quiz(this.quizName, this.questions))
     console.log(this.quizName)
+    this.questions = [];
+    localStorage.setItem('qStorage', JSON.stringify(this.questions))
+    this.qCount = 0;
+    this.quizName = ''
   }
 
 
