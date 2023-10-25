@@ -5,16 +5,25 @@ import { Quiz } from './quiz';
   providedIn: 'root'
 })
 export class QuizService {
-  // Quiz storage array to display
-quizzes:Quiz[] = []
+  quizzes: Quiz[] = [];
+
   constructor() { }
 
   addQuiz(quizKey: Quiz) {
-    console.log(quizKey.questions)
-    this.quizzes.push({...quizKey})
-    localStorage.setItem('quizStorage', JSON.stringify(this.quizzes))
+    this.logQuestions(quizKey);
+    this.updateQuizList(quizKey);
+    this.saveToLocalStorage();
+  }
 
+  logQuestions(quiz: Quiz) {
+    console.log(quiz.questions);
+  }
+
+  updateQuizList(quiz: Quiz) {
+    this.quizzes = [...this.quizzes, {...quiz}];
+  }
+
+  saveToLocalStorage() {
+    localStorage.setItem('quizStorage', JSON.stringify(this.quizzes));
   }
 }
-
-// this.questions.push({...this.newQuestion})

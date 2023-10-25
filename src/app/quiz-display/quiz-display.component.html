@@ -1,4 +1,6 @@
 
 
-<p *ngFor="let quiz of quizzes">{{quiz.quizName}}</p>
+<div *ngFor="let quiz of quizzes"> {{quiz.quizName}}
 <button class="btn btn-danger" (click)="clear()">Clear</button>
+  <!-- Display quiz information here -->
+</div>

@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { QuizService } from '../quiz.service';
 import { Quiz } from '../quiz';
 
 @Component({
@@ -6,25 +7,20 @@ import { Quiz } from '../quiz';
   templateUrl: './quiz-display.component.html',
   styleUrls: ['./quiz-display.component.css']
 })
-export class QuizDisplayComponent {
-quizzes: Quiz[] = []
+export class QuizDisplayComponent implements OnInit {
+  quizzes: Quiz[] = [];
 
-ngOnChanges() {
-  console.log(this.quizzes)
-}
+  constructor(private quizService: QuizService) {}
 
-constructor(private quizService: QuizService) {
-  this.quizzes = this.quizService.quizzes
-}
+  ngOnInit() {
+    // Fetch quizzes from service (or from local storage)
+    this.quizzes = this.quizService.quizzes;
+    // Or load from local storage
+    // this.quizzes = JSON.parse(localStorage.getItem('quizStorage') || '[]');
+  }
 
-constructor (private quizService: QuizService)
-{
-  this.quizzes = this.quizService.quizzes
-}
-clear() {
-  this.quizzes = [];
-
-  localStorage.setItem('quizStorage', JSON.stringify(this.quizzes))
-
+  clear() {
+    this.quizzes = [];
+    localStorage.setItem('quizStorage', JSON.stringify(this.quizzes));
   }
 }
