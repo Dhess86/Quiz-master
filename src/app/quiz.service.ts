@@ -5,7 +5,7 @@ import { Quiz } from './quiz';
   providedIn: 'root'
 })
 export class QuizService {
-  quizzes: Quiz[] = [];
+  quizzes: Quiz[] = JSON.parse(localStorage.getItem('quizStorage') || '[]');
 
   constructor() { }
 

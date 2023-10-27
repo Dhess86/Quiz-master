@@ -1,6 +1,8 @@
 
 
-<div *ngFor="let quiz of quizzes"> {{quiz.quizName}}
-<button class="btn btn-danger" (click)="clear()">Clear</button>
+<div *ngFor="let quiz of quizzes; let index = index">
+  <p (click)="showFinishedQuiz()">  {{quiz.quizName}}</p>
+
+  <button class="btn btn-danger" (click)="clear(index)">X</button>
   <!-- Display quiz information here -->
 </div>

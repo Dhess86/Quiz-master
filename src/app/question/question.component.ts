@@ -23,7 +23,6 @@ export class QuestionComponent {
 
   submitQuestion() {
       this.questions.push({...this.newQuestion})
-      localStorage.setItem('qStorage', JSON.stringify(this.questions))
 
       this.newQuestion = new Question()
       this.qCount++;
@@ -35,7 +34,6 @@ export class QuestionComponent {
     this.quizService.addQuiz(new Quiz(this.quizName, this.questions))
     this.questions = [];
     this.qCount = 0;
-    localStorage.setItem('qStorage', JSON.stringify(this.questions))
     this.quizName=""
 
   }
@@ -43,7 +41,6 @@ export class QuestionComponent {
 
     clear() {
       this.questions = [];
-      localStorage.setItem('qStorage', JSON.stringify(this.questions))
     this.qCount = 0;
       }
     }
