@@ -1,8 +1,37 @@
 
 
 <div *ngFor="let quiz of quizzes; let index = index">
-  <p (click)="showFinishedQuiz()">  {{quiz.quizName}}</p>
+  <p (click)="showFinishedQuiz(quiz)">  {{quiz.quizName}}</p>
 
   <button class="btn btn-danger" (click)="clear(index)">X</button>
   <!-- Display quiz information here -->
 </div>
+
+<hr>
+
+<div *ngIf="selectedQuiz">
+  {{selectedQuiz.quizName}}
+  <div *ngFor="let question of selectedQuiz.questions">
+
+    <p>
+      {{question.question}}
+    </p>
+    <p >
+      <input type="radio">
+      {{question.answer1}}
+    </p>
+    <p >
+      <input type="radio">
+      {{question.answer2}}
+    </p>
+    <p>
+      <input type="radio">
+      {{question.answer3}}
+    </p>
+    <p>
+      <input type="radio">
+      {{question.answer4}}
+    </p>
+  </div>
+</div>
+

@@ -9,6 +9,8 @@ import { Quiz } from '../quiz';
 })
 export class QuizDisplayComponent implements OnInit {
   quizzes: Quiz[] = [];
+  selectedQuiz?: Quiz
+  
 
 
   constructor(private quizService: QuizService) {}
@@ -26,9 +28,9 @@ export class QuizDisplayComponent implements OnInit {
     }
   }
 
-  showFinishedQuiz() {
+  showFinishedQuiz(selectedQuiz: Quiz) {
 //  display indexed place value
-    console.log(this.quizzes)
+    this.selectedQuiz = selectedQuiz
   }
 
 }
