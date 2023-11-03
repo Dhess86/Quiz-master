@@ -10,7 +10,7 @@ import { Quiz } from '../quiz';
 export class QuizDisplayComponent implements OnInit {
   quizzes: Quiz[] = [];
   selectedQuiz?: Quiz
-  
+
 
 
   constructor(private quizService: QuizService) {}

@@ -11,27 +11,29 @@
 
 <div *ngIf="selectedQuiz">
   {{selectedQuiz.quizName}}
-  <div *ngFor="let question of selectedQuiz.questions">
+  <div *ngFor="let question of selectedQuiz.questions;">
 
     <p>
       {{question.question}}
     </p>
     <p >
-      <input type="radio">
+      <input type="radio" name="chosenAnswer">
       {{question.answer1}}
     </p>
     <p >
-      <input type="radio">
+      <input type="radio" name="chosenAnswer">
       {{question.answer2}}
     </p>
     <p>
-      <input type="radio">
+      <input type="radio" name="chosenAnswer">
       {{question.answer3}}
     </p>
     <p>
-      <input type="radio">
+      <input type="radio" name="chosenAnswer">
       {{question.answer4}}
     </p>
+
   </div>
+  <button class="btn btn-primary">Submit</button>
 </div>
 

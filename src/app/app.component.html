@@ -1,3 +1,4 @@
 <app-header (pageToShow)="pageToShow = $event"></app-header>
 <app-question *ngIf="pageToShow === 'question'"></app-question>
 <app-quiz-display *ngIf="pageToShow === 'display'"></app-quiz-display>
+<app-sign-in *ngIf="pageToShow === 'sign-in'"></app-sign-in>

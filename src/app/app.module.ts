@@ -6,13 +6,15 @@ import { QuestionComponent } from './question/question.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { QuizDisplayComponent } from './quiz-display/quiz-display.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionComponent,
     HeaderComponent,
-    QuizDisplayComponent
+    QuizDisplayComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
