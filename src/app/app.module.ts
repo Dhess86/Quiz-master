@@ -7,6 +7,9 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { QuizDisplayComponent } from './quiz-display/quiz-display.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -14,11 +17,13 @@ import { SignInComponent } from './sign-in/sign-in.component';
     QuestionComponent,
     HeaderComponent,
     QuizDisplayComponent,
-    SignInComponent
+    SignInComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,10 +10,15 @@ export class SignInComponent {
     username: '',
     password: ''
   };
+  pageToShow: any;
   onSubmit(form: any) {
     if (form.valid) {
       // Handle form submission, e.g., send data to a server
       console.log('Form submitted:', this.user);
     }
+  }
+
+  onSelect(page: string) {
+    this.pageToShow.emit(page)
   }
 }
