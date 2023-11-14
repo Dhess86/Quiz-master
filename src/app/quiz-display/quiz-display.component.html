@@ -11,7 +11,7 @@
 
 <div class="takeQuiz" *ngIf="selectedQuiz">
   {{selectedQuiz.quizName}}
-  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <form (ngSubmit)="onSubmit()">
 
     <div *ngFor="let question of selectedQuiz.questions; let i = index">
 
@@ -19,19 +19,19 @@
         {{question.question}}
       </p>
       <p >
-        <input type="radio" name="chosenAnswer-{{i}}" value="1" ngModel>
+        <input type="radio" name="chosenAnswer-{{i}}" value="1" [(ngModel)]="question.chosenAnswer">
         {{question.answer1}}
       </p>
       <p >
-        <input type="radio" name="chosenAnswer-{{i}}" value="2" ngModel>
+        <input type="radio" name="chosenAnswer-{{i}}" value="2" [(ngModel)]="question.chosenAnswer">
         {{question.answer2}}
       </p>
       <p>
-        <input type="radio" name="chosenAnswer-{{i}}" value="3" ngModel>
+        <input type="radio" name="chosenAnswer-{{i}}" value="3" [(ngModel)]="question.chosenAnswer">
         {{question.answer3}}
       </p>
       <p>
-        <input type="radio" name="chosenAnswer-{{i}}" value="4" ngModel>
+        <input type="radio" name="chosenAnswer-{{i}}" value="4" [(ngModel)]="question.chosenAnswer">
         {{question.answer4}}
       </p>
 

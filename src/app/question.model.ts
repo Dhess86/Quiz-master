@@ -5,4 +5,5 @@ export class Question {
    answer3: string = ''
    answer4: string = ''
    correctAnswer: string = ''
+   chosenAnswer: string = ''
 }

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { QuizService } from '../quiz.service';
 import { Quiz } from '../quiz';
-import { Question } from '../question';
+import { Question } from '../question.model';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -36,9 +36,12 @@ export class QuizDisplayComponent implements OnInit {
     this.selectedQuiz = selectedQuiz
   }
 
-  onSubmit(form: NgForm) {
-    
-    console.log(form.value)
+  onSubmit() {
+    this.selectedQuiz?.questions.forEach(question => {
+      console.log(question.chosenAnswer === question.correctAnswer)
+    })
+
+    console.log(this.selectedQuiz?.questions)
+  }
   }
 
-}
