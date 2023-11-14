@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { QuizService } from '../quiz.service';
 import { Quiz } from '../quiz';
+import { Question } from '../question';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-quiz-display',
@@ -10,6 +12,7 @@ import { Quiz } from '../quiz';
 export class QuizDisplayComponent implements OnInit {
   quizzes: Quiz[] = [];
   selectedQuiz?: Quiz
+  newAnswer: Question = new Question()
 
 
 
@@ -31,6 +34,11 @@ export class QuizDisplayComponent implements OnInit {
   showFinishedQuiz(selectedQuiz: Quiz) {
 //  display indexed place value
     this.selectedQuiz = selectedQuiz
+  }
+
+  onSubmit(form: NgForm) {
+    
+    console.log(form.value)
   }
 
 }
