@@ -9,6 +9,7 @@ import { QuizDisplayComponent } from './quiz-display/quiz-display.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ScoreComponent } from './score/score.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
     QuizDisplayComponent,
     SignInComponent,
     SignUpComponent,
+    ScoreComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@
 
 <div class="takeQuiz" *ngIf="selectedQuiz">
   {{selectedQuiz.quizName}}
-  <form (ngSubmit)="onSubmit()">
+  <form #gradeQuiz="ngForm" (ngSubmit)="onSubmit(gradeQuiz)">
 
     <div *ngFor="let question of selectedQuiz.questions; let i = index">
 
@@ -19,24 +19,25 @@
         {{question.question}}
       </p>
       <p >
-        <input type="radio" name="chosenAnswer-{{i}}" value="1" [(ngModel)]="question.chosenAnswer">
+        <input type="radio" name="chosenAnswer-{{i}}" value="1" [(ngModel)]="question.chosenAnswer" [disabled]="gradeQuiz.submitted">
         {{question.answer1}}
       </p>
       <p >
-        <input type="radio" name="chosenAnswer-{{i}}" value="2" [(ngModel)]="question.chosenAnswer">
+        <input type="radio" name="chosenAnswer-{{i}}" value="2" [(ngModel)]="question.chosenAnswer" [disabled]="gradeQuiz.submitted">
         {{question.answer2}}
       </p>
       <p>
-        <input type="radio" name="chosenAnswer-{{i}}" value="3" [(ngModel)]="question.chosenAnswer">
+        <input type="radio" name="chosenAnswer-{{i}}" value="3" [(ngModel)]="question.chosenAnswer" [disabled]="gradeQuiz.submitted">
         {{question.answer3}}
       </p>
       <p>
-        <input type="radio" name="chosenAnswer-{{i}}" value="4" [(ngModel)]="question.chosenAnswer">
+        <input type="radio" name="chosenAnswer-{{i}}" value="4" [(ngModel)]="question.chosenAnswer" [disabled]="gradeQuiz.submitted">
         {{question.answer4}}
       </p>
 
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="gradeQuiz.submitted" >Submit</button>
   </form>
+  <button routerLink="/score" class="btn btn-success">See Your Score!</button>
 </div>
 

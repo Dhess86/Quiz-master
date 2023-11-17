@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./quiz-display.component.css']
 })
 export class QuizDisplayComponent implements OnInit {
+
   quizzes: Quiz[] = [];
   selectedQuiz?: Quiz
   newAnswer: Question = new Question()
@@ -36,12 +37,16 @@ export class QuizDisplayComponent implements OnInit {
     this.selectedQuiz = selectedQuiz
   }
 
-  onSubmit() {
+  onSubmit(form: any) {
     this.selectedQuiz?.questions.forEach(question => {
       console.log(question.chosenAnswer === question.correctAnswer)
     })
 
     console.log(this.selectedQuiz?.questions)
   }
+
+  // answerSubmit(form: any): boolean {
+  //   return this.answerSubmit(form.valid) ? true : false
+  //   }
   }
 
